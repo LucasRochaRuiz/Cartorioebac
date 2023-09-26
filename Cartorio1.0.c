@@ -153,7 +153,10 @@ int main(void)
 			case 3:
 				deletar();
 				break;
-			
+			case 4:
+				printf("Obrigado por usar o programa!\n");
+				return 0;
+				break;
 			default:
 				printf("\nOpção invalida. Escolha entre as 3 opções disponiveis no menu.\n\n");
 				pausaTela();
