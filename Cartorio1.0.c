@@ -135,6 +135,7 @@ int main(void)
 		if (strcmp(senha, "admin") != 0)
 		{
 			printf("\n\n--- Senha incorreta ---\n\n");
+			getchar();
 			pausaTela();
 		}
 	}
