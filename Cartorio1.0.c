@@ -46,7 +46,6 @@ int registro(void)
 	fprintf(file, nome);
 	fclose(file);
 	
-	
 	file = fopen(arquivo, "a");
 	fprintf(file, ", ");
 	fclose(file);
@@ -57,7 +56,6 @@ int registro(void)
 	file = fopen(arquivo, "a");
 	fprintf(file, sobrenome);
 	fclose(file);
-	
 	
 	file = fopen(arquivo, "a");
 	fprintf(file, ", ");
@@ -87,7 +85,7 @@ int consultar(void)
 	
 	if(file == NULL)
 	{
-		printf("\nNão foi possivel blablabla\n\n");
+		printf("\nO usuário não se encontra no sistema.\n\n");
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL)
@@ -117,15 +115,32 @@ int deletar(void)
     	printf("\nO usuário não se encontra no sistema.\n\n");
     	pausaTela();
 	}
-	
 }
 
 int main(void)
 {	
 	int opcao = 0;
-	int laco = 1;
+	//int laco = 1;
+	char senha[10];
+	setlocale(LC_ALL, "Portuguese");
 	
-	while (laco == 1)
+	do
+	{
+		limpaTela();
+		
+		printf("### Cartório da Ebac ###\n\n");
+		printf("\nDigite a senha:  ");
+		scanf("%s", senha);
+		
+		if (strcmp(senha, "admin") != 0)
+		{
+			printf("\n\n--- Senha incorreta ---\n\n");
+			pausaTela();
+		}
+	}
+	while (strcmp(senha, "admin") != 0);
+	
+	while (1)
 	{	
 		limpaTela();	
 		
@@ -164,3 +179,5 @@ int main(void)
 		}
 	}
 }
+
+
